@@ -4,9 +4,14 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.maths.tictactoe.databinding.ActivityMainBinding
@@ -62,13 +67,16 @@ class MainActivity : AppCompatActivity() {
             if (winningCheck()) {
                 // Handle win condition
                 updateScore()
-                winner = "Congratulations $currentPlayer won"
-                disableButton()
+                if(player_x > player_o || player_o > player_x) {
+                    winner = "Congratulations $currentPlayer won"
+                    disableButton()
+                }
                 if (round > 1) {
+                    dialogBox("Player $currentPlayer won round $round")
                     round--
                     binding.round.text = "Round: $round"
-                    refreshGame()
-                } else if (round == 1) {
+                }
+                else if (round == 1) {
                     if (player_x == player_o) {
                         winner = "It's a Tie"
                         showWinnerDialog()
@@ -157,6 +165,9 @@ class MainActivity : AppCompatActivity() {
             player2Drawable?.setColorFilter(defaultStrokeColor, PorterDuff.Mode.SRC_IN)
         }
         binding.player2Card.background = player2Drawable
+
+        binding.xTurn.visibility = if(currentPlayer == "X") View.VISIBLE else View.INVISIBLE
+        binding.oTurn.visibility = if(currentPlayer == "O") View.VISIBLE else View.INVISIBLE
     }
 
     private fun winningCheck(): Boolean {
@@ -199,8 +210,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     @SuppressLint("SetTextI18n")
     private fun refreshGame() {
         val adapter = binding.gridView.adapter as GridAdapter
@@ -214,16 +223,43 @@ class MainActivity : AppCompatActivity() {
             binding.player1Card.background = ContextCompat.getDrawable(this, R.drawable.player_turn_layout)
             binding.player2Card.background = ContextCompat.getDrawable(this, R.drawable.player_turn_layout)
         }
-
+        binding.xTurn.visibility = if(currentPlayer == "X") View.VISIBLE else View.VISIBLE
+        binding.oTurn.visibility = if(currentPlayer == "Y") View.VISIBLE else View.VISIBLE
         // Reset round and scores if necessary
         if (round == 0) {
             binding.round.text = "Round: $initialRound"  // Ensure round is updated
             round = initialRound
             player_o = 0
             player_x = 0
+
         } else {
             binding.round.text = "Round: $round"
         }
         adapter.notifyDataSetChanged()
     }
+    @SuppressLint("MissingInflatedId")
+    private fun dialogBox(message: String) {
+        // Inflate the custom layout
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_box_design, null)
+        val messageTextView = dialogView.findViewById<TextView>(R.id.result)
+        val positiveButton = dialogView.findViewById<Button>(R.id.ok)
+
+        // Set the message
+        messageTextView.text = message
+
+        // Create and show the dialog
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        positiveButton.setOnClickListener {
+            // Refresh the game and dismiss the dialog
+            refreshGame()
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 }

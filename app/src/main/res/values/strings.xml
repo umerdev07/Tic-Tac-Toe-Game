@@ -10,4 +10,9 @@
     <string name="winner_announcement">Winner Announcement</string>
     <string name="ok">Ok</string>
     <string name="rounds">Rounds</string>
+    <string name="status">Status</string>
+    <string name="result_whoose_won_round">Result whoose won round</string>
+    <string name="round_winner">Round Winner</string>
+    <string name="player_x">Player X</string>
+    <string name="player_o">Player O</string>
 </resources>
