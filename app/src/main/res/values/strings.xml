@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="slogan">Think Fast, Play Smart!</string>
+    <string name="name">Enter Player names</string>
+    <string name="startgame">Start Game</string>
+    <string name="player1">Player One</string>
+    <string name="player2">Player Two</string>
+    <string name="button">Button</string>
+    <string name="score_0">Score: 0</string>
+    <string name="winner_announcement">Winner Announcement</string>
+    <string name="ok">Ok</string>
+    <string name="rounds">Rounds</string>
+</resources>

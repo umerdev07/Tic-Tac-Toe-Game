@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#747574"> <!-- Ripple color -->
+
+    <!-- Background color when the button is not pressed -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/blunishPurple" />
+        </shape>
+    </item>
+
+    <!-- Ripple mask color (when the button is pressed) -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/darker_gray" />
+        </shape>
+    </item>
+
+</ripple>

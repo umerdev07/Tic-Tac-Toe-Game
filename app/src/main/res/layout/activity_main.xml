@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/player1Card"
+        android:layout_width="124dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        app:cardBackgroundColor="@color/blunishPurple"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toStartOf="@+id/player2Card"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/player_1"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/letter_x"
+            android:backgroundTint="@color/crossRed" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/player2Card"
+        android:layout_width="124dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:padding="10dp"
+        app:cardBackgroundColor="@color/blunishPurple"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/player_2"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/letter_o" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/purple"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825">
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="367dp"
+            android:layout_height="384dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="3"
+            android:padding="16dp"
+            android:scrollbars="none"
+            android:verticalSpacing="20dp"
+            tools:listitem="@layout/grid_items" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/rounds"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/player2Card"
+        app:layout_constraintStart_toStartOf="@+id/player1Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

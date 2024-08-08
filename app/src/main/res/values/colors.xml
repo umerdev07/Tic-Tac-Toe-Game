@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lightBlue">#23A4FB</color>
+    <color name="background">#1B1E51</color>
+    <color name="darkPurple">#190043</color>
+    <color name="gray">#8C8888</color>
+    <color name="blunishPurple">#101032</color>
+    <color name="crossRed">#F0154D</color>
+    <color name="purple">#6748C2</color>
+    <color name="strokecolor">#100F30</color>
+</resources>
